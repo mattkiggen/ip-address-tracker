@@ -1,0 +1,30 @@
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  min-width: 1000px;
+  margin-top: 20px;
+  margin-bottom: -80px;
+  padding: 40px;
+  border-radius: 10px;
+
+  .separator {
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+  }
+
+  h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: hsl(0, 0%, 59%);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 24px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+}

@@ -1,10 +1,11 @@
 import styles from '../styles/Header.module.scss';
 import background from '../images/pattern-bg.png';
+import Details from './Details';
 
 export default function Header() {
   const icon = (
     <svg xmlns='http://www.w3.org/2000/svg' width='11' height='14'>
-      <path fill='none' stroke='#FFF' stroke-width='3' d='M2 1l6 6-6 6' />
+      <path fill='none' stroke='#FFF' strokeWidth='3' d='M2 1l6 6-6 6' />
     </svg>
   );
 
@@ -17,6 +18,7 @@ export default function Header() {
         <input type='text' placeholder='Search for any IP address or domain' />
         <button>{icon}</button>
       </div>
+      <Details />
     </div>
   );
 }
