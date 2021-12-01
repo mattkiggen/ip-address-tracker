@@ -1,5 +1,11 @@
 import Joi from 'joi';
 
+/**
+ *
+ * @param {string} url
+ * @param {object} options
+ * @returns an object that contains data and error properties
+ */
 export async function getData(url, options = {}) {
   let data;
   let error;
