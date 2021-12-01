@@ -41,7 +41,7 @@ function App() {
   return (
     <div className='App'>
       <Header data={data} handleSearch={handleSearch} />
-      {data && <LocationMap data={data} />}
+      <LocationMap data={data} />
       <Footer />
     </div>
   );
