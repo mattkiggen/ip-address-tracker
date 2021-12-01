@@ -1,9 +1,8 @@
 .details {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: #fff;
-  min-width: 1000px;
+  width: 1000px;
   margin-top: 20px;
   margin-bottom: -80px;
   padding: 40px;
@@ -12,9 +11,22 @@
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   z-index: 1000;
 
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin-bottom: -120px;
+  }
+
   .separator {
     border-left: 1px solid #ccc;
     padding-left: 20px;
+    padding-right: 20px;
+
+    @media only screen and (max-width: 1000px) {
+      border: 0;
+      padding: 0;
+      margin-top: 20px;
+    }
   }
 
   h3 {
@@ -29,5 +41,6 @@
     font-size: 24px;
     text-transform: capitalize;
     font-weight: bold;
+    word-wrap: break-word;
   }
 }

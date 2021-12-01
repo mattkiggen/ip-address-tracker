@@ -1,4 +1,10 @@
-import { MapContainer, TileLayer, Circle, useMap } from 'react-leaflet';
+import {
+  MapContainer,
+  TileLayer,
+  Circle,
+  useMap,
+  ZoomControl,
+} from 'react-leaflet';
 import { LatLng } from 'leaflet';
 import styles from '../styles/Map.module.scss';
 
@@ -12,6 +18,7 @@ export default function LocationMap({ data }) {
       center={position}
       zoom={13}
       scrollWheelZoom={false}
+      zoomControl={false}
       className={styles.map}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -22,6 +29,7 @@ export default function LocationMap({ data }) {
         pathOptions={{ fillColor: 'red' }}
         radius={600}
       />
+      <ZoomControl position='bottomright' />
       <ChangeView lat={position[0]} lng={position[1]} />
     </MapContainer>
   );

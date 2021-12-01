@@ -1,4 +1,8 @@
 .map {
   background-color: #ccc;
   height: 800px;
+
+  @media only screen and (max-width: 1000px) {
+    height: 500px;
+  }
 }

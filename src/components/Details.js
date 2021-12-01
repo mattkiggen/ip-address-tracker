@@ -10,19 +10,19 @@ export default function Details({ data }) {
 
   return (
     <div className={styles.details}>
-      <div>
+      <div className={styles.child}>
         <h3>IP Address</h3>
         <p>{ip}</p>
       </div>
-      <div className={styles.separator}>
+      <div className={styles.separator + ' ' + styles.child}>
         <h3>Location</h3>
         <p>{location}</p>
       </div>
-      <div className={styles.separator}>
+      <div className={styles.separator + ' ' + styles.child}>
         <h3>Timezone</h3>
         <p>UTC {timezone}</p>
       </div>
-      <div className={styles.separator}>
+      <div className={styles.separator + ' ' + styles.child}>
         <h3>ISP</h3>
         <p>{isp}</p>
       </div>
