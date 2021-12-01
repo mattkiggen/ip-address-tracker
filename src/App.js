@@ -4,6 +4,7 @@ import Header from './components/Header';
 import LocationMap from './components/LocationMap';
 import { isDomain, isIpAddress } from './lib/data';
 import './App.css';
+import Footer from './components/Footer';
 
 function App() {
   const [data, setData] = useState(null);
@@ -41,6 +42,7 @@ function App() {
     <div className='App'>
       <Header data={data} handleSearch={handleSearch} />
       {data && <LocationMap data={data} />}
+      <Footer />
     </div>
   );
 }
