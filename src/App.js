@@ -19,8 +19,12 @@ function App() {
       url += `&ipAddress=${query}`;
     }
 
-    const res = await getData(url);
-    setData(res);
+    const { data: res, error } = await getData(url);
+    if (data) {
+      setData(res);
+    } else {
+      console.log(error);
+    }
   };
 
   // get ip address on initial app load
@@ -28,7 +32,14 @@ function App() {
     const controller = new AbortController();
 
     (async () => {
-      const res = await getData(url, { signal: controller.signal });
+      const { data: res, error } = await getData(url, {
+        signal: controller.signal,
+      });
+      if (data) {
+        setData(res);
+      } else {
+        console.log(error);
+      }
       setData(res);
     })();
 

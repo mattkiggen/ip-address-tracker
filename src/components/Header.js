@@ -1,8 +1,9 @@
+import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+import { validateInput } from '../lib/data';
+import Details from './Details';
 import styles from '../styles/Header.module.scss';
 import background from '../images/pattern-bg.png';
-import Details from './Details';
-import { useState } from 'react';
-import { validateInput } from '../lib/data';
 
 export default function Header({ data, handleSearch }) {
   const [query, setQuery] = useState('');
@@ -10,6 +11,7 @@ export default function Header({ data, handleSearch }) {
   const handleInput = (input) => {
     const { error } = validateInput(input);
     if (error) {
+      toast("That didn't work, check your input", { icon: '😞' });
       console.log(error);
     }
     handleSearch(input);
@@ -36,6 +38,7 @@ export default function Header({ data, handleSearch }) {
       </div>
 
       <Details data={data} />
+      <Toaster />
     </div>
   );
 }
