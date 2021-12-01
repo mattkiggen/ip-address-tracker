@@ -21,6 +21,6 @@ The `.env` file should contain the following:
 
 ###### Notes
 
-- Since this is just a create-reacta-app project, API keys are exposed on the client.
+- Since this is just a create-react-app project, API keys are exposed on the client.
 - If you are using an adblock, you will need to turn it off for the app to function correctly.
 - This project is based on a design challenge featured on [FrontendMentor.io](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0)
