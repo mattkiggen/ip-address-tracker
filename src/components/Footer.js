@@ -1,6 +1,8 @@
+import styles from '../styles/Footer.module.scss';
+
 export default function Footer() {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <p>
         Built with{' '}
         <a href='https://create-react-app.dev/' target='_blank'>
