@@ -29,7 +29,6 @@ function App() {
 
     (async () => {
       const res = await getData(url, { signal: controller.signal });
-      console.log(res);
       setData(res);
     })();
 
