@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getData } from './lib/data';
 import Header from './components/Header';
-import Map from './components/Map';
+import LocationMap from './components/LocationMap';
 import { isDomain, isIpAddress } from './lib/data';
 import './App.css';
 
@@ -40,7 +40,7 @@ function App() {
   return (
     <div className='App'>
       <Header data={data} handleSearch={handleSearch} />
-      <Map />
+      {data && <LocationMap data={data} />}
     </div>
   );
 }
