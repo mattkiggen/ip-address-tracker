@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { getData } from './lib/data';
 import Header from './components/Header';
 import LocationMap from './components/LocationMap';
@@ -19,11 +20,11 @@ function App() {
       url += `&ipAddress=${query}`;
     }
 
-    const { data: res, error } = await getData(url);
+    const { data: res } = await getData(url);
     if (data) {
       setData(res);
     } else {
-      console.log(error);
+      toast('Failed to fetch data', { icon: '😞' });
     }
   };
 
@@ -46,12 +47,13 @@ function App() {
     return () => {
       controller.abort();
     };
-  }, [url]);
+  }, [url, data]);
 
   return (
     <div className='App'>
       <Header data={data} handleSearch={handleSearch} />
       <LocationMap data={data} />
+      <Toaster />
       <Footer />
     </div>
   );

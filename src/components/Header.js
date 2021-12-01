@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { validateInput } from '../lib/data';
 import Details from './Details';
 import styles from '../styles/Header.module.scss';
@@ -38,7 +38,6 @@ export default function Header({ data, handleSearch }) {
       </div>
 
       <Details data={data} />
-      <Toaster />
     </div>
   );
 }

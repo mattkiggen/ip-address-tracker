@@ -5,7 +5,7 @@ export default function Details({ data }) {
   const location = data
     ? `${data.location.region}, ${data.location.country}`
     : 'Loading...';
-  const timezone = data ? data.location.timezone : 'Loading...';
+  const timezone = data ? `UTC ${data.location.timezone}` : 'Loading...';
   const isp = data ? data.isp : 'Loading...';
 
   return (
@@ -20,7 +20,7 @@ export default function Details({ data }) {
       </div>
       <div className={styles.separator + ' ' + styles.child}>
         <h3>Timezone</h3>
-        <p>UTC {timezone}</p>
+        <p>{timezone}</p>
       </div>
       <div className={styles.separator + ' ' + styles.child}>
         <h3>ISP</h3>
