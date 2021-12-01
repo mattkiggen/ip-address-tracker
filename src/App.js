@@ -7,6 +7,7 @@ import { isDomain, isIpAddress } from './lib/data';
 import './App.css';
 import Footer from './components/Footer';
 
+// Need to fix infinte loop?
 function App() {
   const [data, setData] = useState(null);
   let url = `https://geo.ipify.org/api/v1?apiKey=${process.env.REACT_APP_IPIFY_API_KEY}`;
