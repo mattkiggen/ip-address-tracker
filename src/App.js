@@ -4,21 +4,26 @@ import { getData } from './lib/data';
 import Header from './components/Header';
 import LocationMap from './components/LocationMap';
 import { isDomain, isIpAddress } from './lib/data';
-import './App.css';
 import Footer from './components/Footer';
+import './App.css';
 
-// Need to fix infinte loop?
 function App() {
   const [data, setData] = useState(null);
-  let url = `https://geo.ipify.org/api/v1?apiKey=${process.env.REACT_APP_IPIFY_API_KEY}`;
+  const [url, setUrl] = useState(
+    `https://geo.ipify.org/api/v1?apiKey=${process.env.REACT_APP_IPIFY_API_KEY}`
+  );
 
   const handleSearch = async (query) => {
     if (isDomain(query)) {
-      url += `&domain=${query}`;
+      setUrl((prevUrl) => {
+        return (prevUrl += `&domain=${query}`);
+      });
     }
 
     if (isIpAddress(query)) {
-      url += `&ipAddress=${query}`;
+      setUrl((prevUrl) => {
+        return (prevUrl += `&ipAddress=${query}`);
+      });
     }
 
     const { data: res } = await getData(url);
@@ -33,22 +38,18 @@ function App() {
   useEffect(() => {
     const controller = new AbortController();
 
-    (async () => {
-      const { data: res, error } = await getData(url, {
-        signal: controller.signal,
-      });
-      if (data) {
-        setData(res);
-      } else {
-        console.log(error);
-      }
-      setData(res);
-    })();
+    const fetchData = async () => {
+      const { data, error } = await getData(url);
+      if (error) return;
+      setData(data);
+    };
+
+    fetchData();
 
     return () => {
       controller.abort();
     };
-  }, [url, data]);
+  }, [url]);
 
   return (
     <div className='App'>
