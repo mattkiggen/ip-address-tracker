@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { getData } from './lib/data';
+import { getData, isDomain, isIpAddress } from './lib/data';
 import Header from './components/Header';
 import LocationMap from './components/LocationMap';
-import { isDomain, isIpAddress } from './lib/data';
 import Footer from './components/Footer';
 import './App.css';
 
