@@ -34,7 +34,9 @@ export default function Header({ data, handleSearch }) {
           placeholder='Search for any IP address or domain'
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button onClick={() => handleInput(query)}>{icon}</button>
+        <button onClick={() => handleInput(query)} title='Search'>
+          {icon}
+        </button>
       </div>
 
       <Details data={data} />
